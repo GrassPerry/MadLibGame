@@ -1,9 +1,9 @@
 import random
 
 # Word lists
-NOUNS = ["Berdly", "Catti", "Jockington", "Kris", "Susie", "Noelle", "Ralsei", "Toriel", "Asriel", "Flowey"]
-VERBS = ["kill", "spare", "mercy", "pacify", "defend", "attack", "run"]
-ADJECTIVES = ["sweet", "salty", "soft", "sour", "pain", "cold"]
+NAME = ["Berdly", "Catti", "Jockington", "Kris", "Susie", "Noelle", "Ralsei", "Toriel", "Asriel", "Flowey"]
+ACTION = ["kill", "spare", "mercy", "pacify", "defend", "attack", "run"]
+FAVORITE_THING = ["sweet", "salty", "soft", "sour", "pain", "cold"]
 
 
 class InputManager:
@@ -99,12 +99,12 @@ class MadLibGame:
         self.helper.print_section("Welcome to the Mad Lib Game!")
         
         while True:
-            noun1 = self.input_manager.get_user_input("noun", NOUNS)
-            verb1 = self.input_manager.get_user_input("verb", VERBS)
-            adjective1 = self.input_manager.get_user_input("adjective", ADJECTIVES)
-            noun2 = self.input_manager.get_user_input("noun", NOUNS)
-            verb2 = self.input_manager.get_user_input("verb", VERBS)
-            adjective2 = self.input_manager.get_user_input("adjective", ADJECTIVES)
+            noun1 = self.input_manager.get_user_input("name", NAME)
+            verb1 = self.input_manager.get_user_input("action", ACTION)
+            adjective1 = self.input_manager.get_user_input("favorite_thing", FAVORITE_THING)
+            noun2 = self.input_manager.get_user_input("name", NAME)
+            verb2 = self.input_manager.get_user_input("action", ACTION)
+            adjective2 = self.input_manager.get_user_input("favorite_thing", FAVORITE_THING)
             
             story = self.story_template.generate_story(noun1, verb1, adjective1, noun2, verb2, adjective2)
             
