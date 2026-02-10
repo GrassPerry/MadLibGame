@@ -5,6 +5,8 @@ This was a solo project done by me(yes I know we were supposed to do group work 
 I think my biggest challenge in the project was coming up with the stories but eventually I got the idea to base it off of vessel creation in chapter one of Deltarune. I figured it'd be fun to have a situation where you get told by the narrator what becomes of your vessel instead of it just being discarded. 
 
 (Images of what happens both in my game and actual Deltarune)
+
+
 ![Action](https://github.com/GrassPerry/MadLibGame/blob/main/Images/Action.png?raw=true)
 ![Favorite_Thing](https://github.com/GrassPerry/MadLibGame/blob/main/Images/Favorite_Thing.png?raw=true)
 ![Name](https://github.com/GrassPerry/MadLibGame/blob/main/Images/Name.png?raw=true)
