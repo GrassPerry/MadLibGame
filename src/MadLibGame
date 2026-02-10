@@ -1,0 +1,120 @@
+import random
+
+# Word lists
+NOUNS = ["Berdly", "Catti", "Jockington", "Kris", "Susie", "Noelle", "Ralsei", "Toriel", "Asriel", "Flowey"]
+VERBS = ["kill", "spare", "mercy", "pacify", "defend", "attack", "run"]
+ADJECTIVES = ["sweet", "salty", "soft", "sour", "pain", "cold"]
+
+
+class InputManager:
+    
+    @staticmethod
+    def get_user_input(word_type, words):
+        print(f"\nChoose a {word_type}:")
+        for i, word in enumerate(words, 1):
+            print(f"  {i}. {word}")
+        
+        while True:
+            try:
+                choice = int(input(f"Enter number (1-{len(words)}): ").strip())
+                if 1 <= choice <= len(words):
+                    return words[choice - 1]
+                print("Invalid choice. Try again.")
+            except ValueError:
+                print("Please enter a valid number.")
+
+
+class Helper:
+    
+    @staticmethod
+    def print_section(title):
+        print(f"\n{title}")
+        print("-" * 40)
+
+
+class StoryTemplate:
+    
+    def __init__(self):
+        self.templates = {
+            1: self._template_1,
+            2: self._template_2,
+            3: self._template_3,
+            4: self._template_4,
+            5: self._template_5,
+        }
+    
+    def generate_story(self, noun1, verb1, adjective1, noun2, verb2, adjective2):
+        story_choice = random.randint(1, 5)
+        return self.templates[story_choice](noun1, verb1, adjective1, noun2, verb2, adjective2)
+    
+    @staticmethod
+    def _template_1(noun1, verb1, adjective1, noun2, verb2, adjective2):
+        return f"""
+    Your vessel likes {adjective1} and is named {noun1}. It chooses to {verb1} the monsters.
+    Suddenly, it met the {adjective2} monster named {noun2} that began to {verb2}.
+    Their story may never be forgotten and their battle was legendary.
+    """
+    
+    @staticmethod
+    def _template_2(noun1, verb1, adjective1, noun2, verb2, adjective2):
+        return f"""
+    A {adjective1} vessel called {noun1} walked into a {adjective2} {noun2}.
+    It started to {verb1} wildly while the {noun2} began to {verb2}.
+    The dark fountain nearly swallowed the world but was stopped just in time.
+    """
+    
+    @staticmethod
+    def _template_3(noun1, verb1, adjective1, noun2, verb2, adjective2):
+        return f"""
+    The vessel {noun1} was feeling quite {adjective1}. Because of this they decided it was best to {verb1} every monster.
+    One day, a {adjective2} {noun2} appeared and started to {verb2} too.
+    You can figure out how their tale could've ended...
+    """
+    
+    @staticmethod
+    def _template_4(noun1, verb1, adjective1, noun2, verb2, adjective2):
+        return f"""
+    In a land far away, the {adjective1} vessel, {noun1} could {verb1} like no other.
+    One day {noun2} decided to {verb2} {noun1} and in the end they both left feeling {adjective2}.
+    """
+    
+    @staticmethod
+    def _template_5(noun1, verb1, adjective1, noun2, verb2, adjective2):
+        return f"""
+    A {adjective1} vessel named {noun1} was known for the ability to {verb1}.
+    When a {adjective2} vessel the owner called {noun2} tried to {verb2}, chaos erupted!
+    The two vessels combined and became the strongest the world had seen...
+    then darkness covered the world.
+    """
+
+
+class MadLibGame:
+    
+    def __init__(self):
+        self.input_manager = InputManager()
+        self.story_template = StoryTemplate()
+        self.helper = Helper()
+    
+    def run(self):
+        self.helper.print_section("Welcome to the Mad Lib Game!")
+        
+        noun1 = self.input_manager.get_user_input("noun", NOUNS)
+        verb1 = self.input_manager.get_user_input("verb", VERBS)
+        adjective1 = self.input_manager.get_user_input("adjective", ADJECTIVES)
+        noun2 = self.input_manager.get_user_input("noun", NOUNS)
+        verb2 = self.input_manager.get_user_input("verb", VERBS)
+        adjective2 = self.input_manager.get_user_input("adjective", ADJECTIVES)
+        
+        story = self.story_template.generate_story(noun1, verb1, adjective1, noun2, verb2, adjective2)
+        
+        self.helper.print_section("Your Mad Lib Story:")
+        print(story)
+
+
+def main():
+    game = MadLibGame()
+    game.run()
+
+
+if __name__ == "__main__":
+    main()
