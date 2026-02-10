@@ -116,7 +116,7 @@ class MadLibGame:
     
     def _ask_replay(self):
         while True:
-            choice = input("\nWould you like to create another vessel with it's own story? (yes/no): ").strip().lower()
+            choice = input("\nWould you like to create another vessel with its own story? (yes/no): ").strip().lower()
             if choice in ['yes', 'y']:
                 return True
             elif choice in ['no', 'n']:
